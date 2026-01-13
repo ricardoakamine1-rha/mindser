@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindSer - Diagnóstico de Prontidão Executiva</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Landing Page -->
+    <section id="landing" class="page active">
+        <div class="container">
+            <div class="logo-container">
+                <img src="logo.png" alt="MindSer Logo" class="logo" id="mainLogo">
+            </div>
+            <h1>Diagnóstico de Prontidão Executiva</h1>
+            <p class="subtitle">Avalie sua preparação para posições de liderança executiva através do QDPE - Questionário Diagnóstico de Prontidão Executiva</p>
+            <div class="features">
+                <div class="feature">
+                    <span class="feature-icon">📊</span>
+                    <h3>30 Questões</h3>
+                    <p>Avaliação completa em 6 dimensões</p>
+                </div>
+                <div class="feature">
+                    <span class="feature-icon">⏱️</span>
+                    <h3>15-20 minutos</h3>
+                    <p>Tempo estimado de aplicação</p>
+                </div>
+                <div class="feature">
+                    <span class="feature-icon">📄</span>
+                    <h3>Relatório PDF</h3>
+                    <p>Análise detalhada e personalizada</p>
+                </div>
+            </div>
+            <button class="btn-primary" onclick="showPage('questionnaire')">Iniciar Avaliação</button>
+            <a href="#" class="admin-link" onclick="showPage('admin-login')">Área Administrativa</a>
+        </div>
+    </section>
+
+    <!-- Questionnaire Page -->
+    <section id="questionnaire" class="page">
+        <div class="container">
+            <div class="header-bar">
+                <img src="logo.png" alt="MindSer" class="logo-small">
+                <div class="progress-container">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
+                <span class="progress-text" id="progressText">0%</span>
+            </div>
+
+            <form id="assessmentForm">
+                <!-- Personal Info -->
+                <div class="form-section" id="section-info">
+                    <h2>Informações do Avaliado</h2>
+                    <div class="form-group">
+                        <label for="name">Nome Completo *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-mail *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="position">Cargo Atual *</label>
+                        <input type="text" id="position" name="position" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="company">Empresa</label>
+                        <input type="text" id="company" name="company">
+                    </div>
+                    <button type="button" class="btn-primary" onclick="startQuestions()">Continuar</button>
+                </div>
+
+                <!-- Questions will be dynamically inserted here -->
+                <div id="questions-container"></div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Confirmation Page -->
+    <section id="confirmation" class="page">
+        <div class="container text-center">
+            <div class="success-icon">✓</div>
+            <h2>Avaliação Concluída!</h2>
+            <p>O relatório foi gerado com sucesso.</p>
+            <p class="info-text">O download do PDF iniciará automaticamente.</p>
+            <button class="btn-primary" onclick="showPage('landing')">Voltar ao Início</button>
+        </div>
+    </section>
+
+    <!-- Admin Login Page -->
+    <section id="admin-login" class="page">
+        <div class="container">
+            <div class="login-box">
+                <img src="logo.png" alt="MindSer" class="logo-small">
+                <h2>Área Administrativa</h2>
+                <div class="form-group">
+                    <label for="adminPassword">Senha</label>
+                    <input type="password" id="adminPassword" placeholder="Digite a senha">
+                </div>
+                <button class="btn-primary" onclick="adminLogin()">Entrar</button>
+                <a href="#" class="back-link" onclick="showPage('landing')">← Voltar</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Admin Dashboard -->
+    <section id="admin-dashboard" class="page">
+        <div class="container">
+            <div class="admin-header">
+                <img src="logo.png" alt="MindSer" class="logo-small">
+                <h2>Relatórios de Avaliação</h2>
+                <button class="btn-secondary" onclick="adminLogout()">Sair</button>
+            </div>
+            <div id="reports-list" class="reports-list">
+                <p class="no-reports">Nenhum relatório disponível ainda.</p>
+            </div>
+        </div>
+    </section>
+
+    <script src="questions.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
