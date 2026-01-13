@@ -1,0 +1,45 @@
+# Release v1.0.0
+
+Data: 2026-01-13
+
+Resumo
+-----
+Lançamento da versão v1.0.0 do Mindser — site/app estático com perguntas interativas, layout atualizado e deploy automático para GitHub Pages.
+
+Novidades
+--------
+- Página inicial reformulada com novo layout e imagens.
+- Navegação melhorada para dispositivos móveis.
+- Inclusão do logo atualizado (`logo.png`).
+- Perguntas interativas implementadas e refinadas (`questions.js`).
+
+Melhorias
+--------
+- Atualizações de estilo em `styles.css` para melhor contraste e legibilidade.
+- Otimizações e pequenas refatorações em `app.js`.
+- Documentação inicial melhorada (`README.md`, `design.md`).
+
+Correções
+--------
+- Correção de layout quebrado em telas pequenas.
+- Correção de bugs em sequência de perguntas (edge-cases) no `questions.js`.
+
+Como atualizar
+--------------
+1. Atualize o código local:
+   - git pull origin main
+2. (Opcional) Crie a tag do release localmente e faça push:
+   - git tag -a v1.0.0 -m "Release v1.0.0"
+   - git push origin v1.0.0
+
+Publicação do site (GitHub Pages)
+-------------------------------
+Este repositório contém um site estático (`index.html`, `styles.css`, `app.js`, etc.). A seguir está configurado um workflow para publicar automaticamente o site no GitHub Pages a cada push na branch `main`.
+
+Workflow de deploy automático
+----------------------------
+- O workflow `.github/workflows/deploy-pages.yml` faz o empacotamento dos arquivos e usa as actions oficiais para publicar no Pages.
+
+Notas finais
+-----------
+Se desejar que eu também crie a tag e publique a Release no GitHub (com esse mesmo conteúdo), posso fazê-lo em seguida — confirme se quer que eu crie a Release v1.0.0 automaticamente.
